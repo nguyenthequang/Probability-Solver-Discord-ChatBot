@@ -6,13 +6,14 @@ The main points of this project is to create something that can cut down the cal
 
 There are a lot of different websites that do these type of stuff already, but most of them only cover 1 distribution. This chatbot will cover mostly the basics, but it will be more generallized, i.e. you can do many distributions on here without jumping through many sites.
 
-Aside from few random commands, most stats-related commands follow a common format:
-
+Aside from few random commands, most stats-related commands follow a common format.
 In your Discord's chat, type: !distribution_function parameters (Ex: !binom_prob 10 0.5 4)
 
-distribution is binom, multinomial, norm, etc.
+*distribution is binom, multinomial, norm, etc.
 
-function usually includes: prob(calculate multiple simple probs like F(X = 4)),
+function usually includes: 
+
+                           prob(calculate multiple simple probs like F(X = 4)),
 
                            ci(confident interval for true means),
                            
