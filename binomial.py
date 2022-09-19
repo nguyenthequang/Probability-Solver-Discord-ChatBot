@@ -68,4 +68,3 @@ async def binomial_extra(ctx, n: int, p: float):
   await ctx.send("E[X] = mean = " + str(binom.mean(n, p)))
   await ctx.send("Median = " + str(binom.median(n, p)))
   await ctx.send("Var = " + str(binom.var(n, p)))
-  await ctx.send("Std deviation = " + str(binom.std(n, p)))

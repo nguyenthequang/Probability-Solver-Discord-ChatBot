@@ -1,15 +1,17 @@
 from discord.ext import commands
+import discord
 import os
 import random
 
 from binomial import *
+from multinomial import *
+
+bot = commands.Bot(command_prefix='!')
 
 #_________________________EXTRA STUFF________________________________
 
-bot = commands.Bot(command_prefix='!')
 bot.videos = ["https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://www.youtube.com/watch?v=yPYZpwSpKmA", "https://www.youtube.com/watch?v=wCN9WliV-ew", "https://www.youtube.com/watch?v=PWbRleMGagU", "https://www.youtube.com/watch?v=8McISUEXb9g"]
 
-bot.happylist = ["Cat", "Dog", "Games"]
 
 @bot.command(help = "Say hi to user")
 async def hello(ctx):
@@ -23,20 +25,6 @@ async def random_music(ctx):
       await ctx.send("You Just Got RICK ROLLED!!!")
     await ctx.send(picked)
 
-
-@bot.command(help = "Note 1 item that make you happy")
-async def happy(ctx, item):
-    await ctx.send("Awesome!")
-    bot.happylist.append(item)
-    print(bot.happylist)
-
-
-@bot.command(help = "Give you 1 happy item")
-async def sad(ctx):
-  await ctx.send("Hope this makes you feel better!")
-  await ctx.send(random.choice(bot.happylist))
-
-
 @bot.command(help = "Simple calculator")
 async def calc(ctx, x: float, fn: str, y: float):
     if fn == '+':
@@ -49,7 +37,6 @@ async def calc(ctx, x: float, fn: str, y: float):
         await ctx.send(x / y)
     else:
         await ctx.send("We only support 4 function operations")
-
       
 
 #_________________________BINOMIAL DIS_______________________________
@@ -69,6 +56,22 @@ async def binom_ci(ctx, n: int, p: float, ci: float):
 @bot.command(help = "Binom: extra info")
 async def binom_extra(ctx, n: int, p: float):
   await binomial_extra(ctx, n, p)
-  
-password = os.environ['password']
-bot.run(password)
+
+#________________________MULTINOMIAL DIS_____________________________
+      
+@bot.command(help = "Multi: basic prob with an arr of # of occurence of xi, and an arr of prob of xi's")
+async def multi_prob(ctx, xi, pi):
+  await multinomial_prob(ctx, xi, pi)
+
+@bot.command(help = "Multi: extra info")
+async def multi_extra(ctx):
+  await multinomial_extra(ctx)
+
+#Prevent too many request error (429)
+try:
+    password = os.environ['password']
+    bot.run(password)
+except discord.errors.HTTPException:
+    print("\n\n\nBLOCKED BY RATE LIMITS\nRESTARTING NOW\n\n\n")
+    system("python restarter.py")
+    system('kill 1')
