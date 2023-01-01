@@ -1,5 +1,4 @@
 import scipy
-
 from scipy.stats import binom
 
 #BASIC PROBS WITH 1 INPUT [Syntax: (# of trials, prob of success, # of successes)]

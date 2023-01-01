@@ -5,6 +5,7 @@ import random
 
 from binomial import *
 from multinomial import *
+from normal import *
 
 bot = commands.Bot(command_prefix='!')
 
@@ -12,11 +13,9 @@ bot = commands.Bot(command_prefix='!')
 
 bot.videos = ["https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://www.youtube.com/watch?v=yPYZpwSpKmA", "https://www.youtube.com/watch?v=wCN9WliV-ew", "https://www.youtube.com/watch?v=PWbRleMGagU", "https://www.youtube.com/watch?v=8McISUEXb9g"]
 
-
 @bot.command(help = "Say hi to user")
 async def hello(ctx):
     await ctx.send("hello " + ctx.author.display_name)
-
 
 @bot.command(help = "Get random music in the list")
 async def random_music(ctx):
@@ -36,8 +35,7 @@ async def calc(ctx, x: float, fn: str, y: float):
     elif fn == '/':
         await ctx.send(x / y)
     else:
-        await ctx.send("We only support 4 function operations")
-      
+        await ctx.send("We only support 4 function operations")      
 
 #_________________________BINOMIAL DIS_______________________________
       
@@ -66,6 +64,16 @@ async def multi_prob(ctx, xi, pi):
 @bot.command(help = "Multi: extra info")
 async def multi_extra(ctx):
   await multinomial_extra(ctx)
+
+#____________________________NORMAL DIS_________________________________
+      
+@bot.command(help = "Norm: pdf, cdf, and Z-score")
+async def norm_prob(ctx, x: float, mean: float, sd: float):
+  await normal_prob(ctx, x, mean, sd)
+
+@bot.command(help = "Norm: extra info")
+async def norm_extra(ctx):
+  await normal_extra(ctx)
 
 #Prevent too many request error (429)
 try:

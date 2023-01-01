@@ -1,6 +1,5 @@
 import scipy
 import numpy as np
-
 from scipy.stats import multinomial
 
 #BASIC PROBS WITH 2 ARRAYS [Syntax: (list of # of xi's, list of prob for each xi's)]
