@@ -7,7 +7,8 @@ The main points of this project is to create something that can cut down the cal
 There are a lot of different websites that do these type of stuff already, but most of them only cover 1 distribution. This chatbot will cover mostly the basics, but it will be more generallized, i.e. you can do many distributions on here without jumping through many sites.
 
 Aside from few random commands, most stats-related commands follow a common format.
-In your Discord's chat, type: !distribution_function parameters (Ex: !binom_prob 10 0.5 4)
+
+In your Discord's chat, type: !distribution_function parameters (Ex: !binom_prob 10 0.5 4).
 Alternatively, you can type !help to view all possible commands.
 
 *available distribution is binom, multinomial, norm.
