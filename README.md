@@ -1,11 +1,12 @@
-# Probability-Solver-Discord-ChatBot
-A simple Discord chatbot that can solve simple probability problems
+# Introduction
 
-This project ultilizes my knowlegde of Discord Chatbot and my statistics knowledge.
-The main points of this project is to create something that can cut down the calculation required to solve a probability problem.
+## Probability-Solver-Discord-ChatBot
+A simple Discord chatbot that can solve simple probability problems. This project is a fun small project that utilizes my knowledge of Discord Chatbot and my statistics knowledge. 
+The main point of this project is to create something that can cut down the calculation required to solve a probability problem.
 
-There are a lot of different websites that do these type of stuff already, but most of them only cover 1 distribution. This chatbot will cover mostly the basics, but it will be more generallized, i.e. you can do many distributions on here without jumping through many sites.
+There are a lot of different websites that do similar things, but most of them only cover 1 distribution. This chatbot will cover mostly the basics, but it will be more generalized, i.e. you can do many distributions on here without jumping through many sites.
 
+# Technical Overwiew
 Aside from few random commands, most stats-related commands follow a common format.
 
 In your Discord's chat, type: !distribution_function parameters (Ex: !binom_prob 10 0.5 4).
@@ -20,21 +21,7 @@ function usually includes:
                            ci(confident interval for true means),
                            
                            extra(give E[X], Var, SD, etc.)
-# Introduction
-
-## Probability-Solver-Discord-ChatBot
-A simple Discord chatbot that can solve simple probability problems. This project is a fun small project that utilizes my knowledge of Discord Chatbot and my statistics knowledge. 
-The main points of this project is to create something that can cut down the calculation required to solve a probability problem.
-
-There are a lot of different websites that do these type of stuff already, but most of them only cover 1 distribution. This chatbot will cover mostly the basics, but it will be more generallized, i.e. you can do many distributions on here without jumping through many sites.
-1. Runs the saved predicting algorithm or train a new one if no saved algorithm is found
-
-2. Directs the user to a different page where the answer will be given
-
-3. Allows the user to see general informations about the website and to return to the home page to try another text
-
-# Technical Overwiew
-The web application is built using Python and Flask framework. Here's an overview of the key components:
+The application is built using Python and connecting it to Discord. Here's an overview of the key components:
 
 1. app.py: This is the main Python file that contains the Flask application. It handles both GET and POST requests and implements the text classification algorithm. The user's input text is processed, preprocessed using a pre-trained TF-IDF vectorizer, and classified using a pre-trained SVM model. The predicted category is then rendered on the result page.
 
